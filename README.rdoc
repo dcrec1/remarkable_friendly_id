@@ -1,0 +1,6 @@
+= Remarkable FriendlyId
+
+A remarkable matcher for the friendly_id gem.
+
+DONE: :column
+TODO: :use_slug, :reserved, :cache_column, :scope, :strip_diacritics (and block?)

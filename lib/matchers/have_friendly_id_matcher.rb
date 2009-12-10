@@ -21,6 +21,11 @@ module Remarkable
         def column_matches?
           @friendly_id_options[:column] == @column
         end
+        
+        def interpolation_options
+          {:column        => @column.to_s,
+           :actual_column => (@friendly_id_options[:column] if @friendly_id_options)}
+        end
       end
       
       def have_friendly_id(*args)

@@ -2,4 +2,7 @@ en:
   remarkable:
     friendly_id:
       have_friendly_id:
-        description: "have a friendly id generated from its {{column}} column"
+        description: "have a friendly id generated from #{{column}}"
+        expectations:
+          has_friendly_id: "{{subject_name}} to have a friendly id, but none was found (did you call the #has_friendly_id macro on your model?)"
+          column_matches: "{{subject_name}} to generate its friendly id from #{{column}}, not from #{{actual_column}}"
