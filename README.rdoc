@@ -4,5 +4,5 @@ A remarkable matcher for the friendly_id gem.
 
 Supported options: use_slug, reserved
 
-Unsupported options: reserved, cache_column, scope, strip_diacritics
+Unsupported options: cache_column, scope, strip_diacritics
 
