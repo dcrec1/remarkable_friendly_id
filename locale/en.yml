@@ -6,3 +6,8 @@ en:
         expectations:
           has_friendly_id: "{{subject_name}} to have a friendly id, but none was found (did you call the #has_friendly_id macro on your model?)"
           column_matches: "{{subject_name}} to generate its friendly id from #{{column}}, not from #{{actual_column}}"
+          uses_slug: "{{subject_name}} to generate its friendly id using a slug"
+        optionals:
+          use_slug:
+            positive: "using a slug"
+
