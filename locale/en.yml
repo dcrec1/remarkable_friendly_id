@@ -1,0 +1,5 @@
+en:
+  remarkable:
+    friendly_id:
+      have_friendly_id:
+        description: "have a friendly id generated from its {{column}} column"
