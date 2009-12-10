@@ -37,22 +37,31 @@ describe 'have_friendly_id' do
       @matcher.matches? @model
       @matcher.failure_message.should == 'Expected User to generate its friendly id using a slug'
     end
+    
+    it 'should set reserved_matches? message' do
+      @matcher = define_matcher(:login, :reserved => ['new', 'delete', 'order'])
+      @matcher.matches? @model
+      @matcher.failure_message.should == 'Expected User to reserve the "new", "delete", and "order" id(s)'
+    end
   end
   
   before(:each) do
     @subject = define_model :pages, :title => :string do
-      has_friendly_id :title, :use_slug => true
+      has_friendly_id :title, :use_slug => true,
+                              :reserved => ['new', 'delete', 'order']
     end
   end
   
   describe 'matchers' do
     it { should have_friendly_id :title }
     it { should have_friendly_id :title, :use_slug => true }
+    it { should have_friendly_id :title, :reserved => ['new', 'delete', 'order'] }
   end
   
   describe 'macros' do
     should_have_friendly_id :title
     should_have_friendly_id :title, :use_slug => true
+    should_have_friendly_id :title, :reserved => ['new', 'delete', 'order']
   end
 end
 

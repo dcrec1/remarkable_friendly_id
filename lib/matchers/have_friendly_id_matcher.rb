@@ -7,7 +7,8 @@ module Remarkable
         
         assertions :has_friendly_id?,
                    :column_matches?,
-                   :uses_slug?
+                   :use_slug_matches?,
+                   :reserved_matches?
         
         before_assert do
           if @subject.respond_to?(:friendly_id_options)
@@ -25,14 +26,25 @@ module Remarkable
           @friendly_id_options[:column] == @column
         end
         
-        def uses_slug?
+        def use_slug_matches?
           return true if @options[:use_slug].nil?
           @friendly_id_options[:use_slug] == @options[:use_slug]
         end
         
+        def reserved_matches?
+          return true if @options[:reserved].nil?
+          @friendly_id_options[:reserved] == @options[:reserved]
+        end
+        
         def interpolation_options
-          {:column        => @column.to_s,
-           :actual_column => (@friendly_id_options[:column] if @friendly_id_options)}
+          result = {:column => @column.to_s}
+          if @friendly_id_options
+            result.merge! :actual_column => @friendly_id_options[:column]
+          end
+          if @options[:reserved]
+            result.merge! :reserved => array_to_sentence(@options[:reserved], true, '[]')
+          end
+          result
         end
       end
       

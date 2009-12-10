@@ -2,5 +2,7 @@
 
 A remarkable matcher for the friendly_id gem.
 
-DONE: :column
-TODO: :use_slug, :reserved, :cache_column, :scope, :strip_diacritics (and block?)
+Supported options: use_slug, reserved
+
+Unsupported options: reserved, cache_column, scope, strip_diacritics
+
