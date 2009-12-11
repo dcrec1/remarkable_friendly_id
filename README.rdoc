@@ -24,15 +24,15 @@ In your spec:
 
 This project has no stable release, and the following options are not yet supported:
 
-  - reserved_message
-  - scope
-  - strip_diacritics
-  - strip_non_ascii
+- reserved_message
+- scope
+- strip_diacritics
+- strip_non_ascii
 
 Should work with friendly_id >= 2.2.6.
 
 == Authors
 
-  - Sébastien Nicouleaud <sebastien.nicouleaud@gmail.com>
-  - Diego Carrion <dc.rec1@gmail.com>
+- Sébastien Nicouleaud <sebastien.nicouleaud@gmail.com>
+- Diego Carrion <dc.rec1@gmail.com>
 
