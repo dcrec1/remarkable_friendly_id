@@ -2,7 +2,6 @@
 require 'rubygems'
 
 RAILS_VERSION       = ENV['RAILS_VERSION']       || '2.3.5'
-FRIENDLY_ID_VERSION = ENV['FRIENDLY_ID_VERSION'] || '2.1.3'
 
 gem 'activesupport', RAILS_VERSION
 require 'active_support'
@@ -10,7 +9,6 @@ require 'active_support'
 gem 'activerecord', RAILS_VERSION
 require 'active_record'
 
-gem 'norman-friendly_id', FRIENDLY_ID_VERSION
 require 'friendly_id'
 
 # Configure ActiveRecord connection
