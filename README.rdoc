@@ -1,7 +1,38 @@
 = Remarkable FriendlyId
 
-A remarkable matcher for the friendly_id gem.
+A remarkable[link:http://remarkable.rubyforge.org/] matcher for friendly_id[link:http://github.com/norman/friendly_id].
 
- - Supported options: use_slug, reserved, cache_column.
- - Unsupported options: scope, strip_diacritics.
+== Usage
+
+In your model:
+
+  class Page < ActiveRecord::Base
+    has_friendly_id :title, :use_slug     => true,
+                            :reserved     => ['new', 'delete', 'order'],
+                            :cache_column => 'permalink'
+  end
+
+In your spec:
+
+  describe Page do
+    should_have_friendly_id :title, :use_slug => true,
+                                    :reserved => ['new', 'delete', 'order'],
+                                    :cache_column => 'permalink'
+  end
+
+== Status
+
+This project has no stable release, and the following options are not yet supported:
+
+  - reserved_message
+  - scope
+  - strip_diacritics
+  - strip_non_ascii
+
+Should work with friendly_id >= 2.2.6.
+
+== Authors
+
+  - Sébastien Nicouleaud <sebastien.nicouleaud@gmail.com>
+  - Diego Carrion <dc.rec1@gmail.com>
 
