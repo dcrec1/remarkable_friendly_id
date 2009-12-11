@@ -12,6 +12,7 @@ module Remarkable
                    :method_matches?,
                    :use_slug_matches?,
                    :reserved_matches?,
+                   :caches_slug?,
                    :cache_column_matches?
 
         before_assert do
@@ -39,6 +40,10 @@ module Remarkable
           @friendly_id_options[:reserved] == @options[:reserved]
         end
         
+        def caches_slug?
+          @friendly_id_options[:cache_column] or @subject.class.column_names.include?('cached_slug')
+        end
+        
         def cache_column_matches?
           return true if @options[:cache_column].nil?
           @friendly_id_options[:cache_column] == @options[:cache_column]
@@ -51,8 +56,8 @@ module Remarkable
 
           unless @friendly_id_options.nil?
             result.merge!({:actual_method       => @friendly_id_options[:method].to_s,
-                           :actual_reserved     => @friendly_id_options[:reserved].inspect,
-                           :actual_cache_column => @friendly_id_options[:cache_column].inspect})
+                           :actual_reserved     => array_to_sentence(@friendly_id_options[:reserved] || [], true),
+                           :actual_cache_column => @friendly_id_options[:cache_column]})
           end
           
           result

@@ -4,7 +4,7 @@ describe 'have_friendly_id' do
   include ModelBuilder
   
   def define_matcher(column, options={})
-    @model = define_model :users, :login => :string do
+    @model = define_model :users, :login    => :string do
       has_friendly_id :login
     end
 
@@ -47,13 +47,19 @@ describe 'have_friendly_id' do
     it 'should set reserved_matches? message' do
       @matcher = define_matcher(:login, :reserved => ['new', 'delete', 'order'])
       @matcher.matches? @model
-      @matcher.failure_message.should == 'Expected User to reserve the "new", "delete", and "order" id(s)'
+      @matcher.failure_message.should == 'Expected User to reserve the "new", "delete", and "order" ids (not the "new" and "index" ones)'
+    end
+    
+    it 'should set caches_slug? message' do
+      @matcher = define_matcher(:login, :cache_column => 'my_cached_slug')
+      @matcher.matches? @model
+      @matcher.failure_message.should == "Expected User to cache its friendly id, but #cached_slug column does not exist, and you didn't pass a :cache_column option"
     end
     
     it 'should set cache_column_matches? message' do
-      @matcher = define_matcher(:login, :cache_column => 'my_cached_slug')
-      @matcher.matches? @model
-      @matcher.failure_message.should == 'Expected User to cache its friendly id as #my_cached_slug'
+      @matcher = have_friendly_id(:title, :cache_column => 'my_cached_slug')
+      @matcher.matches? @subject
+      @matcher.failure_message.should == 'Expected Page to cache its friendly id as #my_cached_slug, not as #permalink'
     end
   end
   

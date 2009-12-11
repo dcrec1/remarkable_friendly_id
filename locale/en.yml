@@ -7,8 +7,9 @@ en:
           has_friendly_id: "{{subject_name}} to have a friendly id, but none was found (did you call the #has_friendly_id macro on your model?)"
           method_matches: "{{subject_name}} to generate its friendly id from #{{method}}, not from #{{actual_method}}"
           use_slug_matches: "{{subject_name}} to generate its friendly id using a slug"
-          reserved_matches: "{{subject_name}} to reserve the {{reserved}} id(s)"
-          cache_column_matches: "{{subject_name}} to cache its friendly id as #{{cache_column}}"
+          reserved_matches: "{{subject_name}} to reserve the {{reserved}} ids (not the {{actual_reserved}} ones)"
+          caches_slug: "{{subject_name}} to cache its friendly id, but #cached_slug column does not exist, and you didn't pass a :cache_column option"
+          cache_column_matches: "{{subject_name}} to cache its friendly id as #{{cache_column}}, not as #{{actual_cache_column}}"
         optionals:
           use_slug:
             positive: "using a slug"
