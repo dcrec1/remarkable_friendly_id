@@ -8,7 +8,12 @@ en:
           method_matches: "{{subject_name}} to generate its friendly id from #{{method}}, not from #{{actual_method}}"
           use_slug_matches: "{{subject_name}} to generate its friendly id using a slug"
           reserved_matches: "{{subject_name}} to reserve the {{reserved}} id(s)"
+          cache_column_matches: "{{subject_name}} to cache its friendly id as #{{cache_column}}"
         optionals:
           use_slug:
             positive: "using a slug"
+          reserved:
+            positive: "reserving {{sentence}} id(s)"
+          cache_column:
+            positive: "cached as #{{value}}"
 
