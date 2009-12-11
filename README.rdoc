@@ -1,6 +1,6 @@
 = Remarkable FriendlyId
 
-A remarkable[link:http://remarkable.rubyforge.org/] matcher for friendly_id[link:http://github.com/norman/friendly_id].
+A remarkable[http://remarkable.rubyforge.org/] matcher for friendly_id[http://github.com/norman/friendly_id].
 
 == Usage
 
