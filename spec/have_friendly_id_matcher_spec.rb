@@ -21,6 +21,9 @@ describe 'have_friendly_id' do
       
       @matcher.reserved(['new', 'delete', 'order'])
       @matcher.description.should == 'have a friendly id generated from #login using a slug and reserving ["new", "delete", "order"] id(s)'
+      
+      @matcher.cache_column('username')
+      @matcher.description.should == 'have a friendly id generated from #login using a slug, reserving ["new", "delete", "order"] id(s), and cached as #username'
     end
     
     it 'should set has_friendly_id? message' do
