@@ -2,7 +2,6 @@
 
 A remarkable matcher for the friendly_id gem.
 
-Supported options: use_slug, reserved
-
-Unsupported options: cache_column, scope, strip_diacritics
+ - Supported options: use_slug, reserved, cache_column.
+ - Unsupported options: scope, strip_diacritics.
 
