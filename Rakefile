@@ -6,10 +6,10 @@ require 'spec/rake/spectask'
 
 GEM = "remarkable_friendly_id"
 GEM_VERSION = "0.1.0"
-SUMMARY = "FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord. It allows you to create pretty URL’s and work with human-friendly strings as if they were numeric ids for ActiveRecord models."
-AUTHOR = "Norman Clarke"
-EMAIL = "norman@njclarke.com"
-HOMEPAGE = "http://blog.njclarke.com/"
+SUMMARY = "A remarkable matcher for friendly_id"
+AUTHOR = "sebn"
+EMAIL = ""
+HOMEPAGE = ""
 
 
 spec = Gem::Specification.new do |s|
