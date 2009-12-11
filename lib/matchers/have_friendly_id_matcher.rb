@@ -2,11 +2,11 @@ module Remarkable
   module FriendlyId
     module Matchers
       class HaveFriendlyIdMatcher < Remarkable::ActiveRecord::Base
-        arguments :column
+        arguments :method
         optionals :use_slug
 
         assertions :has_friendly_id?,
-                   :column_matches?,
+                   :method_matches?,
                    :use_slug_matches?,
                    :reserved_matches?
 
@@ -22,8 +22,8 @@ module Remarkable
           not @friendly_id_options.nil?
         end
 
-        def column_matches?
-          @friendly_id_options[:method] == @column
+        def method_matches?
+          @friendly_id_options[:method] == @method
         end
 
         def use_slug_matches?
@@ -37,9 +37,9 @@ module Remarkable
         end
 
         def interpolation_options
-          result = {:column => @column.to_s}
+          result = {:method => @method.to_s}
           if @friendly_id_options
-            result.merge! :actual_column => @friendly_id_options[:method]
+            result.merge! :actual_method => @friendly_id_options[:method]
           end
           if @options[:reserved]
             result.merge! :reserved => array_to_sentence(@options[:reserved], true, '[]')

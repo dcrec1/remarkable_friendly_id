@@ -26,7 +26,7 @@ describe 'have_friendly_id' do
       @matcher.failure_message.should == 'Expected Item to have a friendly id, but none was found (did you call the #has_friendly_id macro on your model?)'
     end
     
-    it 'should set column_matches? message' do
+    it 'should set method_matches? message' do
       @matcher = define_matcher(:name)
       @matcher.matches? @model
       @matcher.failure_message.should == 'Expected User to generate its friendly id from #name, not from #login'
